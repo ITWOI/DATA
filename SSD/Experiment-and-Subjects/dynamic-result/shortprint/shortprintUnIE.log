@@ -1,0 +1,15 @@
+Current time:2015-05-14 03:35:12.861822
+2015-05-14 03:35:13.113936:shortp_interrupt is added to breakpoint.
+2015-05-14 03:35:13.167506:shortp_do_work is added to breakpoint.
+2015-05-14 03:35:13.169814:SV:shortp_tv is added to breakpoint.
+2015-05-14 03:35:13.172724:Successfully install callback function!
+2015-05-14 03:35:34.463930:shortp_do_work,Encounted
+2015-05-14 03:35:34.464974:PuT: $shortp_tv$, Read, ffffffffa00ec5c3
+2015-05-14 03:35:34.465489:Interrupt:7 is invoked
+2015-05-14 03:35:34.465923:ISR_entry
+2015-05-14 03:35:34.466309:shortp_interrupt,Encounted
+2015-05-14 03:35:34.467104:ISR_exit
+2015-05-14 03:35:34.467652:Iretd
+2015-05-14 03:35:34.467951:ffffffffa00ec5c3
+2015-05-14 03:35:34.468201:RACE DETECTED
+2015-05-14 03:35:34.468501:prio is:1.0000

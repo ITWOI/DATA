@@ -1,0 +1,66 @@
+{
+    "Info": [
+        "[enable-heap-alloc-failure] Detect a manual check at Line 73 @ /home/fff000/Documents/test/newtests/RedAlert/RAServer/ra/common/HttpServer.cpp",
+        "[enable-fd-alloc-failure] Detect a manual check at Line 22 @ /home/fff000/Documents/test/newtests/RedAlert/RAServer/contrib/filesystem/LocalFileSystem/LocalFileSystem.cpp"
+    ],
+    "Target": ".piggy/top/ra_config_test.bc",
+    "TotalBugs": 1,
+    "TotalFunc": 16846,
+    "ExternalFuncRatio": "1.57",
+    "TotalInst": 358697,
+    "AvgInstPerFunc": "21.63",
+    "MaxInstPerFunc": 4407,
+    "FuncWithMostInst": "testLoadConfig",
+    "AvgCyclomaticComplexity": "1.95",
+    "MaxCyclomaticComplexity": 861,
+    "FuncWithMaxCyclomaticComplexity": "testLoadConfig",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/newtests/RedAlert/RAServer/ra/util/ThreadPool.cpp"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 1,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 74,
+                            "Tip": "Store <b>1</b> to <b>this-&gt;_running</b> (Dereference Site)",
+                            "RawTip": "Store <b>1</b> to <b>this-&gt;_running</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN2ra4util10ThreadPool5startEv",
+                            "FuncName": "ra::util::ThreadPool::start"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 71,
+                            "Tip": "<b>this</b> is used as the 1st parameter in function <b>threadEntry</b>",
+                            "RawTip": "<b>this</b> is used as the 1st parameter in function <b>threadEntry</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN2ra4util10ThreadPool5startEv",
+                            "FuncName": "ra::util::ThreadPool::start"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 53,
+                            "Tip": "Load value from <b>pool-&gt;_running</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>pool-&gt;_running</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN2ra4util10ThreadPool11threadEntryEPv",
+                            "FuncName": "ra::util::ThreadPool::threadEntry"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

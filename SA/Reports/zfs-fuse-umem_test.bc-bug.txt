@@ -1,0 +1,697 @@
+{
+    "TotalBugs": 29,
+    "TotalFunc": "215",
+    "ExternalFuncRate": "30.2%",
+    "TotalInst": "14271",
+    "AvgInstPerFunc": "95.140",
+    "MaxInstPerFunc": "954",
+    "FuncWithMostInst": "umem_cache_create",
+    "AvgCyclomaticComplexity": "5.833",
+    "MaxCyclomaticComplexity": "63",
+    "FuncWithMaxCyclomaticComplexity": "umem_cache_create",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/zfs-fuse/src/lib/libumem/umem_update_thread.c",
+        "/home/fff000/Documents/test/zfs-fuse/src/lib/libumem/sol_compat.h",
+        "/home/fff000/Documents/test/zfs-fuse/src/lib/libumem/umem.c",
+        "/home/fff000/Documents/test/zfs-fuse/src/lib/libumem/umem_fail.c",
+        "/home/fff000/Documents/test/zfs-fuse/src/lib/libumem/vmem.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 29,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 53,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2346,
+                            "Tip": "Store the return value of function <b>pthread_self</b> to <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3085,
+                            "Tip": "Store the return value of function <b>vmem_create</b> to <b>*(umem_hash_arena)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2233,
+                            "Tip": "Load value from <b>*(umem_hash_arena)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3137,
+                            "Tip": "Store <b>new_cpus</b> to <b>*(umem_cpus)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1792,
+                            "Tip": "Load value from <b>*(umem_cpus)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2346,
+                            "Tip": "Store the return value of function <b>pthread_self</b> to <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2172,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 100,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 148,
+                            "Tip": "Store <b>0</b> to <b>*(umem_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 52,
+                            "Tip": "Load value from <b>*(umem_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 3,
+                            "Line": 61,
+                            "Tip": "Store <b>type</b> to <b>*(umem_exiting)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 53,
+                            "Tip": "Load value from <b>*(umem_exiting)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": true,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2826,
+                            "Tip": "Store <b>max_frames</b> to <b>*(umem_stack_depth)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1528,
+                            "Tip": "Load value from <b>*(umem_stack_depth)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3085,
+                            "Tip": "Store the return value of function <b>vmem_create</b> to <b>*(umem_hash_arena)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2204,
+                            "Tip": "Load value from <b>*(umem_hash_arena)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2826,
+                            "Tip": "Store <b>max_frames</b> to <b>*(umem_stack_depth)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1528,
+                            "Tip": "Load value from <b>*(umem_stack_depth)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2346,
+                            "Tip": "Store the return value of function <b>pthread_self</b> to <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1548,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 100,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 148,
+                            "Tip": "Store <b>0</b> to <b>*(umem_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2172,
+                            "Tip": "Load value from <b>*(umem_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3125,
+                            "Tip": "Store <b>1</b> to <b>*(umem_max_ncpus)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2146,
+                            "Tip": "Load value from <b>*(umem_max_ncpus)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2362,
+                            "Tip": "Store <b>0</b> to <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1548,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2380,
+                            "Tip": "Load value from <b>*(umem_reap_next)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 74,
+                            "Tip": "Store <b>gethrtime()+(umem_reap_interval*1000000000)</b> to <b>*(umem_reap_next)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 100,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 148,
+                            "Tip": "Store <b>0</b> to <b>*(umem_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1548,
+                            "Tip": "Load value from <b>*(umem_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3160,
+                            "Tip": "Store the return value of function <b>umem_log_init</b> to <b>*(umem_transaction_log)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1528,
+                            "Tip": "Load value from <b>*(umem_transaction_log)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 100,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 148,
+                            "Tip": "Store <b>0</b> to <b>*(umem_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2195,
+                            "Tip": "Load value from <b>*(umem_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2362,
+                            "Tip": "Store <b>0</b> to <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2195,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2362,
+                            "Tip": "Store <b>0</b> to <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2172,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2346,
+                            "Tip": "Store the return value of function <b>pthread_self</b> to <b>*(umem_st_update_thr)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2195,
+                            "Tip": "Load value from <b>*(umem_st_update_thr)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": true,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 2379,
+                            "Tip": "Load value from <b>*(umem_reaping)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 76,
+                            "Tip": "Store <b>0</b> to <b>*(umem_reaping)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 4,
+                            "Line": 1744,
+                            "Tip": "Store the return value of function <b>vmem_create</b> to <b>*(vmem_hash_arena)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 1609,
+                            "Tip": "Load value from <b>*(vmem_hash_arena)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3161,
+                            "Tip": "Store the return value of function <b>umem_log_init</b> to <b>*(umem_content_log)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1526,
+                            "Tip": "Load value from <b>*(umem_content_log)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3122,
+                            "Tip": "Store <b>umem_max_ncpus+1</b> to <b>*(umem_max_ncpus)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2146,
+                            "Tip": "Load value from <b>*(umem_max_ncpus)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3054,
+                            "Tip": "Store the return value of function <b>umem_get_max_ncpus</b> to <b>*(umem_max_ncpus)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2146,
+                            "Tip": "Load value from <b>*(umem_max_ncpus)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 4,
+                            "Line": 1744,
+                            "Tip": "Store the return value of function <b>vmem_create</b> to <b>*(vmem_hash_arena)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 4,
+                            "Line": 1639,
+                            "Tip": "Load value from <b>*(vmem_hash_arena)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3137,
+                            "Tip": "Store <b>new_cpus</b> to <b>*(umem_cpus)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1104,
+                            "Tip": "Load value from <b>*(umem_cpus)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3119,
+                            "Tip": "Store <b>2147483647</b> to <b>*(umem_max_ncpus)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2146,
+                            "Tip": "Load value from <b>*(umem_max_ncpus)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": true,
+                    "Score": 83,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 3138,
+                            "Tip": "Store <b>umem_max_ncpus-1</b> to <b>*(umem_cpu_mask)</b> (Dereference Site)"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 85,
+                            "Tip": "<b>arg</b> is used as the 1st parameter in function <b>start_func</b>"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1104,
+                            "Tip": "Load value from <b>*(umem_cpu_mask)</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

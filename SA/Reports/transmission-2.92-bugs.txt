@@ -1,0 +1,129 @@
+{
+    "Info": [
+        "[enable-fd-alloc-failure] Detect a manual check at Line 150 @ /home/fff000/Documents/test/transmission-2.92/third-party/libnatpmp/getgateway.c"
+    ],
+    "Target": ".piggy/top/transmission-show.bc",
+    "TotalBugs": 2,
+    "TotalFunc": 2348,
+    "ExternalFuncRatio": "11.71",
+    "TotalInst": 109716,
+    "AvgInstPerFunc": "52.93",
+    "MaxInstPerFunc": 2139,
+    "FuncWithMostInst": "tr_clientForId",
+    "AvgCyclomaticComplexity": "3.83",
+    "MaxCyclomaticComplexity": 166,
+    "FuncWithMaxCyclomaticComplexity": "jsonsl_feed",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/transmission-2.92/libtransmission/platform.c",
+        "/home/fff000/Documents/test/transmission-2.92/libtransmission/utils.c",
+        "/home/fff000/Documents/test/transmission-2.92/libtransmission/trevent.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 2,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 100,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 128,
+                            "Tip": "<b>t</b> is used as the 1st parameter in function <b>ThreadFunc</b>",
+                            "RawTip": "<b>t</b> is used as the 1st parameter in function <b>ThreadFunc</b>",
+                            "Importance": 100,
+                            "FuncKey": "tr_threadNew",
+                            "FuncName": "tr_threadNew"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 106,
+                            "Tip": "<b>t</b> is used as the 1st parameter in function <b>tr_free</b>",
+                            "RawTip": "<b>t</b> is used as the 1st parameter in function <b>tr_free</b>",
+                            "Importance": 100,
+                            "FuncKey": "ThreadFunc",
+                            "FuncName": "ThreadFunc"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 144,
+                            "Tip": "The memory pointed by <b>p</b> is freed",
+                            "RawTip": "The memory pointed by <b>p</b> is freed",
+                            "Importance": 100,
+                            "FuncKey": "tr_free",
+                            "FuncName": "tr_free"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 129,
+                            "Tip": "Load value from <b>t-&gt;thread</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>t-&gt;thread</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "tr_threadNew",
+                            "FuncName": "tr_threadNew"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 100,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 128,
+                            "Tip": "<b>t</b> is used as the 1st parameter in function <b>ThreadFunc</b>",
+                            "RawTip": "<b>t</b> is used as the 1st parameter in function <b>ThreadFunc</b>",
+                            "Importance": 100,
+                            "FuncKey": "tr_threadNew",
+                            "FuncName": "tr_threadNew"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 106,
+                            "Tip": "<b>t</b> is used as the 1st parameter in function <b>tr_free</b>",
+                            "RawTip": "<b>t</b> is used as the 1st parameter in function <b>tr_free</b>",
+                            "Importance": 100,
+                            "FuncKey": "ThreadFunc",
+                            "FuncName": "ThreadFunc"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 144,
+                            "Tip": "The memory pointed by <b>p</b> is freed",
+                            "RawTip": "The memory pointed by <b>p</b> is freed",
+                            "Importance": 100,
+                            "FuncKey": "tr_free",
+                            "FuncName": "tr_free"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 132,
+                            "Tip": "Return <b>t</b> to caller (Dereference Site)",
+                            "RawTip": "Return <b>t</b> to caller (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "tr_threadNew",
+                            "FuncName": "tr_threadNew"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 277,
+                            "Tip": "Store the return value of function <b>tr_threadNew</b> to <b>eh-&gt;thread</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store the return value of function <b>tr_threadNew</b> to <b>eh-&gt;thread</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "tr_eventInit",
+                            "FuncName": "tr_eventInit"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

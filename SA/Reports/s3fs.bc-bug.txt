@@ -1,0 +1,319 @@
+{
+    "Info": [
+        "[enable-heap-alloc-failure] Detect a manual check at Line 536 @ /home/fff000/Documents/test/s3fs-fuse/src/fdcache.cpp",
+        "[enable-fd-alloc-failure] Detect a manual check at Line 887 @ /home/fff000/Documents/test/s3fs-fuse/src/fdcache.cpp"
+    ],
+    "Target": ".piggy/top/s3fs.bc",
+    "TotalBugs": 2,
+    "TotalFunc": 2244,
+    "ExternalFuncRatio": "11.81",
+    "TotalInst": 85218,
+    "AvgInstPerFunc": "43.06",
+    "MaxInstPerFunc": 1643,
+    "FuncWithMostInst": "my_fuse_opt_proc",
+    "AvgCyclomaticComplexity": "6.19",
+    "MaxCyclomaticComplexity": 204,
+    "FuncWithMaxCyclomaticComplexity": "PutHeadRequest",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/s3fs-fuse/src/s3fs.cpp",
+        "/home/fff000/Documents/test/s3fs-fuse/src/fdcache.cpp",
+        "/home/fff000/Documents/test/s3fs-fuse/src/curl.cpp"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 2,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1439,
+                            "Tip": "Enter function <b>rename_object_nocopy</b>",
+                            "RawTip": "Enter function <b>rename_object_nocopy</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL16rename_directoryPKcS0_",
+                            "FuncName": "rename_directory"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1268,
+                            "Tip": "Enter function <b>RowFlush</b>",
+                            "RawTip": "Enter function <b>RowFlush</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL20rename_object_nocopyPKcS0_",
+                            "FuncName": "rename_object_nocopy"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 1502,
+                            "Tip": "Enter function <b>ParallelMultipartUploadRequest</b>",
+                            "RawTip": "Enter function <b>ParallelMultipartUploadRequest</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8FdEntity8RowFlushEPKcb",
+                            "FuncName": "FdEntity::RowFlush"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1271,
+                            "Tip": "Enter function <b>Request</b>",
+                            "RawTip": "Enter function <b>Request</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl30ParallelMultipartUploadRequestEPKcRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_17header_nocase_cmpSaISt4pairIKS8_S8_EEEi",
+                            "FuncName": "S3fsCurl::ParallelMultipartUploadRequest"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 3989,
+                            "Tip": "Enter function <b>MultiPerform</b>",
+                            "RawTip": "Enter function <b>MultiPerform</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN13S3fsMultiCurl7RequestEv",
+                            "FuncName": "S3fsMultiCurl::Request"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 3873,
+                            "Tip": "Enter function <b>RequestPerformWrapper</b>",
+                            "RawTip": "Enter function <b>RequestPerformWrapper</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN13S3fsMultiCurl12MultiPerformEv",
+                            "FuncName": "S3fsMultiCurl::MultiPerform"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 4008,
+                            "Tip": "Enter function <b>RequestPerform</b>",
+                            "RawTip": "Enter function <b>RequestPerform</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN13S3fsMultiCurl21RequestPerformWrapperEPv",
+                            "FuncName": "S3fsMultiCurl::RequestPerformWrapper"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2084,
+                            "Tip": "Enter function <b>RemakeHandle</b>",
+                            "RawTip": "Enter function <b>RemakeHandle</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl14RequestPerformEv",
+                            "FuncName": "S3fsCurl::RequestPerform"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1910,
+                            "Tip": "Enter function <b>AddUserAgent</b>",
+                            "RawTip": "Enter function <b>AddUserAgent</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl12RemakeHandleEv",
+                            "FuncName": "S3fsCurl::RemakeHandle"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1494,
+                            "Tip": "Store <b>1</b> to <b>init</b> (Dereference Site)",
+                            "RawTip": "Store <b>1</b> to <b>init</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl12AddUserAgentEPv",
+                            "FuncName": "S3fsCurl::AddUserAgent"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1437,
+                            "Tip": "Enter function <b>rename_object</b>",
+                            "RawTip": "Enter function <b>rename_object</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL16rename_directoryPKcS0_",
+                            "FuncName": "rename_directory"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1227,
+                            "Tip": "Enter function <b>put_headers</b>",
+                            "RawTip": "Enter function <b>put_headers</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL13rename_objectPKcS0_",
+                            "FuncName": "rename_object"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 786,
+                            "Tip": "Enter function <b>PutHeadRequest</b>",
+                            "RawTip": "Enter function <b>PutHeadRequest</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL11put_headersPKcRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_17header_nocase_cmpSaISt4pairIKS7_S7_EEEb",
+                            "FuncName": "put_headers"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2654,
+                            "Tip": "Enter function <b>AddUserAgent</b>",
+                            "RawTip": "Enter function <b>AddUserAgent</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl14PutHeadRequestEPKcRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_17header_nocase_cmpSaISt4pairIKS8_S8_EEEb",
+                            "FuncName": "S3fsCurl::PutHeadRequest"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1486,
+                            "Tip": "Load value from <b>init</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>init</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl12AddUserAgentEPv",
+                            "FuncName": "S3fsCurl::AddUserAgent"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1439,
+                            "Tip": "Enter function <b>rename_object_nocopy</b>",
+                            "RawTip": "Enter function <b>rename_object_nocopy</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL16rename_directoryPKcS0_",
+                            "FuncName": "rename_directory"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1268,
+                            "Tip": "Enter function <b>RowFlush</b>",
+                            "RawTip": "Enter function <b>RowFlush</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL20rename_object_nocopyPKcS0_",
+                            "FuncName": "rename_object_nocopy"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 1502,
+                            "Tip": "Enter function <b>ParallelMultipartUploadRequest</b>",
+                            "RawTip": "Enter function <b>ParallelMultipartUploadRequest</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8FdEntity8RowFlushEPKcb",
+                            "FuncName": "FdEntity::RowFlush"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1271,
+                            "Tip": "Enter function <b>Request</b>",
+                            "RawTip": "Enter function <b>Request</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl30ParallelMultipartUploadRequestEPKcRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_17header_nocase_cmpSaISt4pairIKS8_S8_EEEi",
+                            "FuncName": "S3fsCurl::ParallelMultipartUploadRequest"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 3989,
+                            "Tip": "Enter function <b>MultiPerform</b>",
+                            "RawTip": "Enter function <b>MultiPerform</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN13S3fsMultiCurl7RequestEv",
+                            "FuncName": "S3fsMultiCurl::Request"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 3873,
+                            "Tip": "Enter function <b>RequestPerformWrapper</b>",
+                            "RawTip": "Enter function <b>RequestPerformWrapper</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN13S3fsMultiCurl12MultiPerformEv",
+                            "FuncName": "S3fsMultiCurl::MultiPerform"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 4008,
+                            "Tip": "Enter function <b>RequestPerform</b>",
+                            "RawTip": "Enter function <b>RequestPerform</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN13S3fsMultiCurl21RequestPerformWrapperEPv",
+                            "FuncName": "S3fsMultiCurl::RequestPerformWrapper"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2084,
+                            "Tip": "Enter function <b>RemakeHandle</b>",
+                            "RawTip": "Enter function <b>RemakeHandle</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl14RequestPerformEv",
+                            "FuncName": "S3fsCurl::RequestPerform"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1910,
+                            "Tip": "Enter function <b>AddUserAgent</b>",
+                            "RawTip": "Enter function <b>AddUserAgent</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl12RemakeHandleEv",
+                            "FuncName": "S3fsCurl::RemakeHandle"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1494,
+                            "Tip": "Store <b>1</b> to <b>init</b> (Dereference Site)",
+                            "RawTip": "Store <b>1</b> to <b>init</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl12AddUserAgentEPv",
+                            "FuncName": "S3fsCurl::AddUserAgent"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1437,
+                            "Tip": "Enter function <b>rename_object</b>",
+                            "RawTip": "Enter function <b>rename_object</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL16rename_directoryPKcS0_",
+                            "FuncName": "rename_directory"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1227,
+                            "Tip": "Enter function <b>put_headers</b>",
+                            "RawTip": "Enter function <b>put_headers</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL13rename_objectPKcS0_",
+                            "FuncName": "rename_object"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 786,
+                            "Tip": "Enter function <b>PutHeadRequest</b>",
+                            "RawTip": "Enter function <b>PutHeadRequest</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZL11put_headersPKcRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_17header_nocase_cmpSaISt4pairIKS7_S7_EEEb",
+                            "FuncName": "put_headers"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 2654,
+                            "Tip": "Enter function <b>AddUserAgent</b>",
+                            "RawTip": "Enter function <b>AddUserAgent</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl14PutHeadRequestEPKcRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_17header_nocase_cmpSaISt4pairIKS8_S8_EEEb",
+                            "FuncName": "S3fsCurl::PutHeadRequest"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1494,
+                            "Tip": "Store <b>1</b> to <b>init</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>1</b> to <b>init</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8S3fsCurl12AddUserAgentEPv",
+                            "FuncName": "S3fsCurl::AddUserAgent"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

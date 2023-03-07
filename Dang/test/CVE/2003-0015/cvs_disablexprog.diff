@@ -1,0 +1,93 @@
+diff -ur cvs-1.11.4.orig/src/parseinfo.c cvs-1.11.4/src/parseinfo.c
+--- cvs-1.11.4.orig/src/parseinfo.c	2002-12-06 20:09:26.000000000 +0100
++++ cvs-1.11.4/src/parseinfo.c	2003-01-14 14:55:03.000000000 +0100
+@@ -340,6 +340,29 @@
+ 		goto error_return;
+ 	    }
+ 	}
++	else if (strcmp (line, "DisableXProg") == 0)
++	{
++	    if (strcmp (p, "no") == 0)
++#ifdef AUTH_SERVER_SUPPORT
++		disable_x_prog = 0;
++#else
++		/* Still parse the syntax but ignore the
++		   option.  That way the same config file can
++		   be used for local and server.  */
++		;
++#endif
++	    else if (strcmp (p, "yes") == 0)
++#ifdef AUTH_SERVER_SUPPORT
++		disable_x_prog = 1;
++#else
++		;
++#endif
++	    else
++	    {
++		error (0, 0, "unrecognized value '%s' for DisableXProg", p);
++		goto error_return;
++	    }
++	}
+ 	else if (strcmp (line, "PreservePermissions") == 0)
+ 	{
+ 	    if (strcmp (p, "no") == 0)
+diff -ur cvs-1.11.4.orig/src/server.c cvs-1.11.4/src/server.c
+--- cvs-1.11.4.orig/src/server.c	2002-12-06 20:14:59.000000000 +0100
++++ cvs-1.11.4/src/server.c	2003-01-14 15:02:36.000000000 +0100
+@@ -118,6 +118,10 @@
+    CVSROOT/config.  */
+ int system_auth = 1;
+ 
++/* Shoudl we disable Update-prog/Checkin-prog? Can be changed by
++   CVSROOT/config.  */
++int disable_x_prog = 0;
++
+ # endif /* AUTH_SERVER_SUPPORT */
+ 
+ 
+@@ -4643,6 +4647,17 @@
+     char *arg;
+ {
+     FILE *f;
++
++    /* Before we do anything we first check if this command is not 
++       disabled. */
++    if (disable_x_prog)
++    {
++	if (alloc_pending (80))
++	    sprintf (pending_error_text, "\
++E Checkin-prog disabled by configuration");
++	return;
++    }
++
+     f = CVS_FOPEN (CVSADM_CIPROG, "w+");
+     if (f == NULL)
+     {
+@@ -4677,6 +4692,16 @@
+ {
+     FILE *f;
+ 
++    /* Before we do anything we first check if this command is not 
++       disabled. */
++    if (disable_x_prog)
++    {
++	if (alloc_pending (80))
++	    sprintf (pending_error_text, "\
++E Update-prog disabled by configuration");
++	return;
++    }
++    
+     /* Before we do anything we need to make sure we are not in readonly
+        mode.  */
+     if (!check_command_legal_p ("commit"))
+diff -ur cvs-1.11.4.orig/src/server.h cvs-1.11.4/src/server.h
+--- cvs-1.11.4.orig/src/server.h	2001-06-21 23:23:09.000000000 +0200
++++ cvs-1.11.4/src/server.h	2003-01-14 20:43:53.000000000 +0100
+@@ -130,6 +130,7 @@
+ #ifdef AUTH_SERVER_SUPPORT
+ extern char *CVS_Username;
+ extern int system_auth;
++extern int disable_x_prog;
+ #endif /* AUTH_SERVER_SUPPORT */
+ 
+ #endif /* SERVER_SUPPORT */

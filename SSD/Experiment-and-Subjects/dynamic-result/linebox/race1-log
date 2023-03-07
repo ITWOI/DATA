@@ -1,0 +1,12 @@
+Current time:2015-05-19 07:50:11.908561
+2015-05-19 07:50:12.171372:xint1 is added to breakpoint.
+2015-05-19 07:50:12.225474:mainFun is added to breakpoint.
+2015-05-19 07:50:12.227865:SV:counter is added to breakpoint.
+2015-05-19 07:50:12.230712:Successfully install callback function!
+2015-05-19 07:50:13.323378:PuT: $counter$, Read, ffffffffa00ec0f7
+2015-05-19 07:50:13.323951:Interrupt:10 is invoked
+2015-05-19 07:50:13.326063:ISR_entry
+2015-05-19 07:50:13.326473:ISR: $counter$, write
+2015-05-19 07:50:13.326865:ISR_exit
+2015-05-19 07:50:13.329354:Iretd
+2015-05-19 07:50:13.330038:ffffffffa00ec0f7

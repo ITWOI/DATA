@@ -1,0 +1,12 @@
+Current time:2015-05-19 07:54:30.430420
+2015-05-19 07:54:30.687827:timer0 is added to breakpoint.
+2015-05-19 07:54:30.740972:Go is added to breakpoint.
+2015-05-19 07:54:30.743307:SV:i1 is added to breakpoint.
+2015-05-19 07:54:30.746195:Successfully install callback function!
+2015-05-19 07:54:31.495531:PuT: $i1$, Read, ffffffffa00ec06e
+2015-05-19 07:54:31.496003:Interrupt:11 is invoked
+2015-05-19 07:54:31.498077:ISR_entry
+2015-05-19 07:54:31.498517:ISR: $i1$, write
+2015-05-19 07:54:31.498836:ISR_exit
+2015-05-19 07:54:31.501328:Iretd
+2015-05-19 07:54:31.501683:ffffffffa00ec06e

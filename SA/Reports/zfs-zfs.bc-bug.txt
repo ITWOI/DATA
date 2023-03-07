@@ -1,0 +1,575 @@
+{
+    "Info": [
+        "[enable-heap-alloc-failure] Detect a manual check at Line 169 @ /home/fff000/Documents/test/zfs/lib/libspl/mkdirp.c",
+        "[enable-fd-alloc-failure] Detect a manual check at Line 535 @ /home/fff000/Documents/test/zfs/lib/libshare/nfs.c"
+    ],
+    "Target": ".piggy/top/zfs.bc",
+    "TotalBugs": 8,
+    "TotalFunc": 1839,
+    "ExternalFuncRatio": "13.21",
+    "TotalInst": 142408,
+    "AvgInstPerFunc": "89.23",
+    "MaxInstPerFunc": 8062,
+    "FuncWithMostInst": "SHA512Transform",
+    "AvgCyclomaticComplexity": "6.49",
+    "MaxCyclomaticComplexity": 122,
+    "FuncWithMaxCyclomaticComplexity": "zfs_receive_one",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/zfs/lib/libzfs/libzfs_diff.c",
+        "/home/fff000/Documents/test/zfs/lib/libspl/strlcpy.c",
+        "/home/fff000/Documents/test/zfs/lib/libzfs/libzfs_sendrecv.c",
+        "/home/fff000/Documents/test/zfs/module/zcommon/zfs_fletcher.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 8,
+            "Reports": [
+                {
+                    "Dominated": true,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 785,
+                            "Tip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "RawTip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 434,
+                            "Tip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "RawTip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "Importance": 100,
+                            "FuncKey": "differ",
+                            "FuncName": "differ"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 49,
+                            "Tip": "Copy data to <b>dst</b>",
+                            "RawTip": "Copy data to <b>dst</b>",
+                            "Importance": 100,
+                            "FuncKey": "strlcpy",
+                            "FuncName": "strlcpy"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 796,
+                            "Tip": "Load value from <b>di.tosnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>di.tosnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 71,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 1875,
+                            "Tip": "Enter function <b>cksummer</b>",
+                            "RawTip": "Enter function <b>cksummer</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_send",
+                            "FuncName": "zfs_send"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 318,
+                            "Tip": "Enter function <b>dump_record</b>",
+                            "RawTip": "Enter function <b>dump_record</b>",
+                            "Importance": 100,
+                            "FuncKey": "cksummer",
+                            "FuncName": "cksummer"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 204,
+                            "Tip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "dump_record",
+                            "FuncName": "dump_record"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 578,
+                            "Tip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_native",
+                            "FuncName": "fletcher_4_incremental_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 559,
+                            "Tip": "Enter function <b>fletcher_4_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_impl",
+                            "FuncName": "fletcher_4_incremental_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 473,
+                            "Tip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native",
+                            "FuncName": "fletcher_4_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 450,
+                            "Tip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "RawTip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native_impl",
+                            "FuncName": "fletcher_4_native_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 428,
+                            "Tip": "Store <b>cycle_count+1</b> to <b>cycle_count</b> (Dereference Site)",
+                            "RawTip": "Store <b>cycle_count+1</b> to <b>cycle_count</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_impl_get",
+                            "FuncName": "fletcher_4_impl_get"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1942,
+                            "Tip": "Enter function <b>dump_record</b>",
+                            "RawTip": "Enter function <b>dump_record</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_send",
+                            "FuncName": "zfs_send"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 204,
+                            "Tip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "dump_record",
+                            "FuncName": "dump_record"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 578,
+                            "Tip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_native",
+                            "FuncName": "fletcher_4_incremental_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 559,
+                            "Tip": "Enter function <b>fletcher_4_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_impl",
+                            "FuncName": "fletcher_4_incremental_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 473,
+                            "Tip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native",
+                            "FuncName": "fletcher_4_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 450,
+                            "Tip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "RawTip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native_impl",
+                            "FuncName": "fletcher_4_native_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 428,
+                            "Tip": "Load value from <b>cycle_count</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>cycle_count</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_impl_get",
+                            "FuncName": "fletcher_4_impl_get"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": true,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 785,
+                            "Tip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "RawTip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 434,
+                            "Tip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "RawTip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "Importance": 100,
+                            "FuncKey": "differ",
+                            "FuncName": "differ"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 49,
+                            "Tip": "Copy data to <b>dst</b>",
+                            "RawTip": "Copy data to <b>dst</b>",
+                            "Importance": 100,
+                            "FuncKey": "strlcpy",
+                            "FuncName": "strlcpy"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 795,
+                            "Tip": "Load value from <b>di.fromsnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>di.fromsnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": true,
+                    "Score": 71,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 2,
+                            "Line": 1875,
+                            "Tip": "Enter function <b>cksummer</b>",
+                            "RawTip": "Enter function <b>cksummer</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_send",
+                            "FuncName": "zfs_send"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 318,
+                            "Tip": "Enter function <b>dump_record</b>",
+                            "RawTip": "Enter function <b>dump_record</b>",
+                            "Importance": 100,
+                            "FuncKey": "cksummer",
+                            "FuncName": "cksummer"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 204,
+                            "Tip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "dump_record",
+                            "FuncName": "dump_record"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 578,
+                            "Tip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_native",
+                            "FuncName": "fletcher_4_incremental_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 559,
+                            "Tip": "Enter function <b>fletcher_4_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_impl",
+                            "FuncName": "fletcher_4_incremental_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 473,
+                            "Tip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native",
+                            "FuncName": "fletcher_4_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 450,
+                            "Tip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "RawTip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native_impl",
+                            "FuncName": "fletcher_4_native_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 428,
+                            "Tip": "Store <b>cycle_count+1</b> to <b>cycle_count</b> (Dereference Site)",
+                            "RawTip": "Store <b>cycle_count+1</b> to <b>cycle_count</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_impl_get",
+                            "FuncName": "fletcher_4_impl_get"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 1942,
+                            "Tip": "Enter function <b>dump_record</b>",
+                            "RawTip": "Enter function <b>dump_record</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_send",
+                            "FuncName": "zfs_send"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 204,
+                            "Tip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "dump_record",
+                            "FuncName": "dump_record"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 578,
+                            "Tip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_incremental_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_native",
+                            "FuncName": "fletcher_4_incremental_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 559,
+                            "Tip": "Enter function <b>fletcher_4_native</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_incremental_impl",
+                            "FuncName": "fletcher_4_incremental_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 473,
+                            "Tip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "RawTip": "Enter function <b>fletcher_4_native_impl</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native",
+                            "FuncName": "fletcher_4_native"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 450,
+                            "Tip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "RawTip": "Enter function <b>fletcher_4_impl_get</b>",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_native_impl",
+                            "FuncName": "fletcher_4_native_impl"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 428,
+                            "Tip": "Store <b>cycle_count+1</b> to <b>cycle_count</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>cycle_count+1</b> to <b>cycle_count</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "fletcher_4_impl_get",
+                            "FuncName": "fletcher_4_impl_get"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 785,
+                            "Tip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "RawTip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 434,
+                            "Tip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "RawTip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "Importance": 100,
+                            "FuncKey": "differ",
+                            "FuncName": "differ"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 49,
+                            "Tip": "Copy data to <b>dst</b>",
+                            "RawTip": "Copy data to <b>dst</b>",
+                            "Importance": 100,
+                            "FuncKey": "strlcpy",
+                            "FuncName": "strlcpy"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 811,
+                            "Tip": "Load value from <b>di.zerr</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>di.zerr</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": true,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 785,
+                            "Tip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "RawTip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 434,
+                            "Tip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "RawTip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "Importance": 100,
+                            "FuncKey": "differ",
+                            "FuncName": "differ"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 49,
+                            "Tip": "Copy data to <b>dst</b>",
+                            "RawTip": "Copy data to <b>dst</b>",
+                            "Importance": 100,
+                            "FuncKey": "strlcpy",
+                            "FuncName": "strlcpy"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 796,
+                            "Tip": "Load value from <b>di.tosnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>di.tosnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 785,
+                            "Tip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "RawTip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 434,
+                            "Tip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "RawTip": "<b>&amp;(di-&gt;errbuf)</b> is used as the 1st parameter in function <b>strlcpy</b>",
+                            "Importance": 100,
+                            "FuncKey": "differ",
+                            "FuncName": "differ"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 49,
+                            "Tip": "Copy data to <b>dst</b>",
+                            "RawTip": "Copy data to <b>dst</b>",
+                            "Importance": 100,
+                            "FuncKey": "strlcpy",
+                            "FuncName": "strlcpy"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 795,
+                            "Tip": "Load value from <b>di.fromsnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>di.fromsnap</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 97,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 785,
+                            "Tip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "RawTip": "<b>di</b> is used as the 1st parameter in function <b>differ</b>",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 433,
+                            "Tip": "Store <b>__errno_location()</b> to <b>di-&gt;zerr</b> (Dereference Site)",
+                            "RawTip": "Store <b>__errno_location()</b> to <b>di-&gt;zerr</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "differ",
+                            "FuncName": "differ"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 811,
+                            "Tip": "Load value from <b>di.zerr</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>di.zerr</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "zfs_show_diffs",
+                            "FuncName": "zfs_show_diffs"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

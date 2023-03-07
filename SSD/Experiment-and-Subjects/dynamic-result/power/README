@@ -1,0 +1,7 @@
+List are two data race in power.c. The race are between PuT DataSave 
+and ISR RsManageA(RsManageB), and DataSave is called by mainFun.
+Because DataSave is too simple and compiler optimizates it. 
+So only when change PuT to mainFun can simics detect the race. 
+If we disable compiler optimization, then set PuT to DataSave is
+detectable.
+Readers can find the difference between two symbol files.

@@ -1,0 +1,32 @@
+CheckerEnable
+{
+	danglingPointer = true
+}
+
+PrintLog
+{
+	level = 0
+	taintChecker = false
+	danglingPointer = false
+	arrayBound = false
+	recursiveCall = false
+	divideChecker = false
+	memoryOPChecker = false
+}
+
+Framework
+{
+	queue_size = 100
+}
+
+DataRace
+{
+	enable = enable_irq
+	enable_arg = 0
+	disable = disable_irq
+	disable_arg = 0
+	request = request_irq
+	request_IRL = 0
+	request_ISR = 1
+}
+

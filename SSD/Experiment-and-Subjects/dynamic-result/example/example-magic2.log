@@ -1,0 +1,26 @@
+Current time:2015-03-14 13:25:01.731483
+2015-03-14 13:25:02.033970:irq_handler1 is added to breakpoint.
+2015-03-14 13:25:02.075979:task2 is added to breakpoint.
+2015-03-14 13:25:02.077655:SV:bufferAddr is added to breakpoint.
+2015-03-14 13:25:02.079666:Successfully install callback function!
+2015-03-14 13:25:02.806860:task2,Encounted
+2015-03-14 13:25:02.922343:begin reverse execution
+2015-03-14 13:25:02.998028:task2,Encounted
+2015-03-14 13:25:03.210061:begin reverse execution
+2015-03-14 13:25:03.242084:task2,Encounted
+2015-03-14 13:25:03.362290:begin reverse execution
+2015-03-14 13:25:03.393123:task2,Encounted
+2015-03-14 13:25:03.558945:begin reverse execution
+2015-03-14 13:25:03.597439:task2,Encounted
+2015-03-14 13:25:03.722651:begin reverse execution
+2015-03-14 13:25:03.753097:task2,Encounted
+2015-03-14 13:25:03.882686:begin reverse execution
+2015-03-14 13:25:03.916593:task2,Encounted
+2015-03-14 13:25:04.072273:begin reverse execution
+2015-03-14 13:25:04.115224:task2,Encounted
+2015-03-14 13:25:04.220538:begin reverse execution
+2015-03-14 13:25:04.252652:task2,Encounted
+2015-03-14 13:25:04.356496:begin reverse execution
+2015-03-14 13:25:04.386378:task2,Encounted
+2015-03-14 13:25:04.391940:Run time out, may be SVs are not the same address
+

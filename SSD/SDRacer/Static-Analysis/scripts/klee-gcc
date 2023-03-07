@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+
+import os, sys
+import commands
+
+def isLinkCommand():
+    # Look for '-Wl,' as a signal that we are calling the linker. What a hack.
+    if '-c' in sys.argv:
+        return False
+    return True
+
+def main():
+    (status, output)  = commands.getstatusoutput('uname -r')
+    srcPath = "/usr/src/linux-headers-" + output
+    modPath = "/lib/modules/" + output + "/build/"
+    (status, output) = commands.getstatusoutput('llvm-config --libdir')
+    llvmLib = output + "/clang/"
+    (status, output) = commands.getstatusoutput('llvm-config --version')
+    llvmLib += output + "/include/"
+    if not isLinkCommand():
+        print " ".join(sys.argv)
+        print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n"
+        ifOut = False
+        compArgs = []
+        args = sys.argv[1:]
+        for a in args:
+            if a.startswith("-I"):
+                if a.startswith("-I./"):
+                    a = a[:2] + srcPath + a[3:]
+                elif not a.startswith("-I/usr/src"):
+                    a = a[:2] + modPath + a[2:]
+            if a.startswith("-isystem"):
+                #a = a + " " + llvmLib + " " + "-I" + srcPath
+                compArgs.append(a)
+                compArgs.append(llvmLib)
+                compArgs.append("-I"+srcPath)
+                continue
+            if ifOut:
+                ifOut = False
+                slashIndex = a.rfind('/')
+                typeIndex = a.rfind('.')
+                a = a[:slashIndex+1]+ a[slashIndex+6:typeIndex+1]+"ast"
+            if a == "-o":
+                ifOut = True
+            if a in ('-falign-jumps=1','-falign-loops=1', '--param=allow-store-data-races=0', '-O2') or a.startswith("-Wp,") or a.startswith("-W"):
+                continue
+            compArgs.append(a)
+        compArgs = [ "clang",  "-emit-ast", "-O0", "-g"] + compArgs
+        #print compArgs
+        command =  " ".join(compArgs)
+        print command
+
+        os.execvp("clang", compArgs)
+        return 1
+
+    # Otherwise, strip out arguments that llvm-ld doesn't understand. I don't
+    # want my previous explicit declaration of hackyness to imply that this bit
+    # of code here is not also a complete and total hack, it is.
+    
+    args = sys.argv[1:]
+    linkArgs = []
+    for a in args:
+        if a in ('-I'):
+            continue
+        elif a.startswith('-Wl,'):
+            continue
+
+        linkArgs.append(a)
+    
+    #os.execvp("clang", linkArgs)
+    return 1
+
+if __name__ == '__main__':
+    main()
+

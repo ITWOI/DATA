@@ -1,0 +1,17 @@
+Current time:2015-03-14 13:27:10.944726
+2015-03-14 13:27:11.283749:irq_handler1 is added to breakpoint.
+2015-03-14 13:27:11.351229:task1 is added to breakpoint.
+2015-03-14 13:27:11.354161:SV:bufferAddr is added to breakpoint.
+2015-03-14 13:27:11.360156:Successfully install callback function!
+2015-03-14 13:27:16.105232:PuT: $bufferAddr$, Write, ffffffffa00ec0ce
+2015-03-14 13:27:16.106315:task1,Encounted
+2015-03-14 13:27:16.232958:PuT: $bufferAddr$, Write, ffffffffa00ec0ce
+2015-03-14 13:27:16.234229:ISR_entry
+2015-03-14 13:27:16.234942:ISR: $bufferAddr$, write
+2015-03-14 13:27:16.235650:irq_handler1,Encounted
+2015-03-14 13:27:16.236531:ISR_exit
+2015-03-14 13:27:16.237523:Iretd
+2015-03-14 13:27:16.238275:ffffffffa00ec0ce
+2015-03-14 13:27:16.238878:RACE DETECTED
+2015-03-14 13:27:16.239492:prio is:1.0000
+

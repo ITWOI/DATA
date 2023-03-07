@@ -1,0 +1,429 @@
+{
+    "Info": [
+        "[enable-heap-alloc-failure] Detect a manual check at Line 309 @ /home/fff000/Documents/test/newtests/rsyslog/plugins/imudp/imudp.c"
+    ],
+    "Target": "./rsyslog/.piggy/top/imudp.so.bc",
+    "TotalBugs": 6,
+    "TotalFunc": 90,
+    "ExternalFuncRatio": "62.22",
+    "TotalInst": 3513,
+    "AvgInstPerFunc": "103.32",
+    "MaxInstPerFunc": 419,
+    "FuncWithMostInst": "createListner",
+    "AvgCyclomaticComplexity": "7.41",
+    "MaxCyclomaticComplexity": 30,
+    "FuncWithMaxCyclomaticComplexity": "addListner",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/newtests/rsyslog/plugins/imudp/imudp.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 6,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 70,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1245,
+                            "Tip": "Enter function <b>wrkr</b>",
+                            "RawTip": "Enter function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1226,
+                            "Tip": "Enter function <b>rcvMainLoop</b>",
+                            "RawTip": "Enter function <b>rcvMainLoop</b>",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 829,
+                            "Tip": "Enter function <b>processSocket</b>",
+                            "RawTip": "Enter function <b>processSocket</b>",
+                            "Importance": 100,
+                            "FuncKey": "rcvMainLoop",
+                            "FuncName": "rcvMainLoop"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 541,
+                            "Tip": "Enter function <b>processPacket</b>",
+                            "RawTip": "Enter function <b>processPacket</b>",
+                            "Importance": 100,
+                            "FuncKey": "processSocket",
+                            "FuncName": "processSocket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 430,
+                            "Tip": "Store <b>tt</b> to <b>ttLastDiscard</b> (Dereference Site)",
+                            "RawTip": "Store <b>tt</b> to <b>ttLastDiscard</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "processPacket",
+                            "FuncName": "processPacket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1251,
+                            "Tip": "Enter function <b>wrkr</b>",
+                            "RawTip": "Enter function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1226,
+                            "Tip": "Enter function <b>rcvMainLoop</b>",
+                            "RawTip": "Enter function <b>rcvMainLoop</b>",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 829,
+                            "Tip": "Enter function <b>processSocket</b>",
+                            "RawTip": "Enter function <b>processSocket</b>",
+                            "Importance": 100,
+                            "FuncKey": "rcvMainLoop",
+                            "FuncName": "rcvMainLoop"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 541,
+                            "Tip": "Enter function <b>processPacket</b>",
+                            "RawTip": "Enter function <b>processPacket</b>",
+                            "Importance": 100,
+                            "FuncKey": "processSocket",
+                            "FuncName": "processSocket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 430,
+                            "Tip": "Store <b>tt</b> to <b>ttLastDiscard</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>tt</b> to <b>ttLastDiscard</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "processPacket",
+                            "FuncName": "processPacket"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": true,
+                    "Score": 72,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1245,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1226,
+                            "Tip": "<b>pWrkr</b> is used as the 1st parameter in function <b>rcvMainLoop</b>",
+                            "RawTip": "<b>pWrkr</b> is used as the 1st parameter in function <b>rcvMainLoop</b>",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 829,
+                            "Tip": "<b>pWrkr</b> is used as the 1st parameter in function <b>processSocket</b>",
+                            "RawTip": "<b>pWrkr</b> is used as the 1st parameter in function <b>processSocket</b>",
+                            "Importance": 100,
+                            "FuncKey": "rcvMainLoop",
+                            "FuncName": "rcvMainLoop"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 539,
+                            "Tip": "Store <b>pWrkr-&gt;ctrMsgsRcvd+nelem</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site)",
+                            "RawTip": "Store <b>pWrkr-&gt;ctrMsgsRcvd+nelem</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "processSocket",
+                            "FuncName": "processSocket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1251,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1221,
+                            "Tip": "Store <b>0</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>0</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1245,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1218,
+                            "Tip": "Store <b>0</b> to <b>pWrkr-&gt;ctrCall_recvmsg</b> (Dereference Site)",
+                            "RawTip": "Store <b>0</b> to <b>pWrkr-&gt;ctrCall_recvmsg</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1251,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1218,
+                            "Tip": "Store <b>0</b> to <b>pWrkr-&gt;ctrCall_recvmsg</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>0</b> to <b>pWrkr-&gt;ctrCall_recvmsg</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": true,
+                    "Score": 95,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1245,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1221,
+                            "Tip": "Store <b>0</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site)",
+                            "RawTip": "Store <b>0</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1251,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1221,
+                            "Tip": "Store <b>0</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>0</b> to <b>pWrkr-&gt;ctrMsgsRcvd</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 70,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1245,
+                            "Tip": "Enter function <b>wrkr</b>",
+                            "RawTip": "Enter function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1226,
+                            "Tip": "Enter function <b>rcvMainLoop</b>",
+                            "RawTip": "Enter function <b>rcvMainLoop</b>",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 829,
+                            "Tip": "Enter function <b>processSocket</b>",
+                            "RawTip": "Enter function <b>processSocket</b>",
+                            "Importance": 100,
+                            "FuncKey": "rcvMainLoop",
+                            "FuncName": "rcvMainLoop"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 541,
+                            "Tip": "Enter function <b>processPacket</b>",
+                            "RawTip": "Enter function <b>processPacket</b>",
+                            "Importance": 100,
+                            "FuncKey": "processSocket",
+                            "FuncName": "processSocket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 430,
+                            "Tip": "Store <b>tt</b> to <b>ttLastDiscard</b> (Dereference Site)",
+                            "RawTip": "Store <b>tt</b> to <b>ttLastDiscard</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "processPacket",
+                            "FuncName": "processPacket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1251,
+                            "Tip": "Enter function <b>wrkr</b>",
+                            "RawTip": "Enter function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1226,
+                            "Tip": "Enter function <b>rcvMainLoop</b>",
+                            "RawTip": "Enter function <b>rcvMainLoop</b>",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 829,
+                            "Tip": "Enter function <b>processSocket</b>",
+                            "RawTip": "Enter function <b>processSocket</b>",
+                            "Importance": 100,
+                            "FuncKey": "rcvMainLoop",
+                            "FuncName": "rcvMainLoop"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 541,
+                            "Tip": "Enter function <b>processPacket</b>",
+                            "RawTip": "Enter function <b>processPacket</b>",
+                            "Importance": 100,
+                            "FuncKey": "processSocket",
+                            "FuncName": "processSocket"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 429,
+                            "Tip": "Load value from <b>ttLastDiscard</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>ttLastDiscard</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "processPacket",
+                            "FuncName": "processPacket"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 84,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 1245,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1226,
+                            "Tip": "<b>pWrkr</b> is used as the 1st parameter in function <b>rcvMainLoop</b>",
+                            "RawTip": "<b>pWrkr</b> is used as the 1st parameter in function <b>rcvMainLoop</b>",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 829,
+                            "Tip": "<b>pWrkr</b> is used as the 1st parameter in function <b>processSocket</b>",
+                            "RawTip": "<b>pWrkr</b> is used as the 1st parameter in function <b>processSocket</b>",
+                            "Importance": 100,
+                            "FuncKey": "rcvMainLoop",
+                            "FuncName": "rcvMainLoop"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1251,
+                            "Tip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "RawTip": "<b>&amp;(wrkrInfo[i])</b> is used as the 1st parameter in function <b>wrkr</b>",
+                            "Importance": 100,
+                            "FuncKey": "runInput",
+                            "FuncName": "runInput"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 1218,
+                            "Tip": "Store <b>0</b> to <b>pWrkr-&gt;ctrCall_recvmsg</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>0</b> to <b>pWrkr-&gt;ctrCall_recvmsg</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "wrkr",
+                            "FuncName": "wrkr"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

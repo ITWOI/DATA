@@ -1,0 +1,15 @@
+Current time:2015-05-04 16:24:42.862247
+2015-05-04 16:24:43.334319:IntProcess is added to breakpoint.
+2015-05-04 16:24:43.375639:ReadASIC is added to breakpoint.
+2015-05-04 16:24:43.446479:WriteASIC is added to breakpoint.
+2015-05-04 16:24:43.495513:Task is added to breakpoint.
+2015-05-04 16:24:43.497533:SV:TBR is added to breakpoint.
+2015-05-04 16:24:43.501009:Successfully install callback function!
+2015-05-04 16:24:44.348949:PuT: $TBR$, Read, ffffffffa00ec05f
+2015-05-04 16:24:44.362810:Interrupt:10 is invoked
+2015-05-04 16:24:44.367935:ISR_entry
+2015-05-04 16:24:44.370045:ISR: $TBR$, write
+2015-05-04 16:24:44.370244:ISR: $TBR$, write
+2015-05-04 16:24:44.374570:ISR_exit
+2015-05-04 16:24:44.394147:Iretd
+2015-05-04 16:24:44.401701:ffffffffa00ec05f

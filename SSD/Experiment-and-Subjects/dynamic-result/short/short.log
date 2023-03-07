@@ -1,0 +1,17 @@
+Current time:2015-05-05 04:43:34.856140
+2015-05-05 04:43:35.112954:short_probing is added to breakpoint.
+2015-05-05 04:43:35.167402:short_selfprobe is added to breakpoint.
+2015-05-05 04:43:35.169715:SV:short_irq is added to breakpoint.
+2015-05-05 04:43:35.172764:Successfully install callback function!
+2015-05-05 04:44:01.696697:PuT: $short_irq$, Write, ffffffffa00ec2a5
+2015-05-05 04:44:01.697203:short_selfprobe,Encounted
+2015-05-05 04:44:01.699039:PuT: $short_irq$, Read, ffffffffa00ec305
+2015-05-05 04:44:01.699506:Interrupt:7 is invoked
+2015-05-05 04:44:01.701864:ISR_entry
+2015-05-05 04:44:01.702230:short_probing,Encounted
+2015-05-05 04:44:01.702416:ISR: $short_irq$, write
+2015-05-05 04:44:01.702733:ISR_exit
+2015-05-05 04:44:01.704145:Iretd
+2015-05-05 04:44:01.704532:ffffffffa00ec305
+2015-05-05 04:44:01.704749:RACE DETECTED
+2015-05-05 04:44:01.704981:prio is:1.0000

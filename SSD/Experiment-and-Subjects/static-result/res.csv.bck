@@ -1,0 +1,7 @@
+mpu401_uart-EI,2,2,2,1,1,2,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,fp,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,4,4,2,2,2,2,fp a bit level oper,fp a bit level oper,fp a bit level oper,fp a bit level oper,1,2,2,2,2,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,1,1,2,2,2,2,fp,1,1,1,1,1,4,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,2,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,2,2,fp,2,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,fp a low level oper,fp,fp,2,2,2,2,2,2,2,2,2,2,2,2
+i2c-pca-isa-EI,1,2,2,2
+mv643xx_eth,4,4,4,2,2,2,2,4,4,1,1,2,4,4,4,2
+shortprintEI,1,1,1,1,1,1,2,2,3,3,3,3,3,3
+shortprintUnEI,2,2,3,3
+short,1,4,1,4,2,2,1,1,1,1,1,1,1,1,2,2,2,1,1,3,3,1,1,2,2,3,3,2,2,3,3,2,2,3,3,2,2,3,3,2,2,4,4,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+shortIE,1,4,1,3,3,3,3,3,3,3,3,1,4,1,3,3,3,3,3,3,3,3

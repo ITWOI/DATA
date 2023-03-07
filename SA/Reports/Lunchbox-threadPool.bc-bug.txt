@@ -1,0 +1,283 @@
+{
+    "Info": [
+        "[enable-fd-alloc-failure] Detect a manual check at Line 80 @ /home/fff000/Documents/test/Lunchbox/lunchbox/file.cpp"
+    ],
+    "Target": "./Lunchbox/build/.piggy/top/threadPool.bc",
+    "TotalBugs": 2,
+    "TotalFunc": 4220,
+    "ExternalFuncRatio": "7.25",
+    "TotalInst": 71756,
+    "AvgInstPerFunc": "18.33",
+    "MaxInstPerFunc": 457,
+    "FuncWithMostInst": "transform",
+    "AvgCyclomaticComplexity": "1.51",
+    "MaxCyclomaticComplexity": 33,
+    "FuncWithMaxCyclomaticComplexity": "fork",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/Lunchbox/lunchbox/thread.cpp",
+        "/home/fff000/Documents/test/Lunchbox/lunchbox/log.cpp",
+        "/home/fff000/Documents/test/Lunchbox/lunchbox/perThread.ipp",
+        "/home/fff000/Documents/test/Lunchbox/lunchbox/tls.cpp"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 2,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 185,
+                            "Tip": "Enter function <b>runChild</b>",
+                            "RawTip": "Enter function <b>runChild</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread5startEv",
+                            "FuncName": "lunchbox::Thread::start"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 124,
+                            "Tip": "Enter function <b>_runChild</b>",
+                            "RawTip": "Enter function <b>_runChild</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread8runChildEPv",
+                            "FuncName": "lunchbox::Thread::runChild"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 130,
+                            "Tip": "Enter function <b>setName</b>",
+                            "RawTip": "Enter function <b>setName</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread9_runChildEv",
+                            "FuncName": "lunchbox::Thread::_runChild"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 306,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE",
+                            "FuncName": "lunchbox::Thread::setName"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 350,
+                            "Tip": "Store <b>0</b> to <b>first</b> (Dereference Site)",
+                            "RawTip": "Store <b>0</b> to <b>first</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEv",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 369,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEPKci",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 346,
+                            "Tip": "Enter function <b>globals</b>",
+                            "RawTip": "Enter function <b>globals</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEv",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 94,
+                            "Tip": "Enter function <b>LogGlobals</b>",
+                            "RawTip": "Enter function <b>LogGlobals</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox12_GLOBAL__N_17globalsEv",
+                            "FuncName": "lunchbox::(anonymous namespace)::globals"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 65,
+                            "Tip": "Enter function <b>PerThread</b>",
+                            "RawTip": "Enter function <b>PerThread</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox12_GLOBAL__N_110LogGlobalsC2Ev",
+                            "FuncName": "lunchbox::(anonymous namespace)::LogGlobals::LogGlobals"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 22,
+                            "Tip": "Enter function <b>TLS</b>",
+                            "RawTip": "Enter function <b>TLS</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox9PerThreadINS_3LogEXadL_ZNS_15perThreadDeleteIS1_EEvPT_EEEC2Ev",
+                            "FuncName": "lunchbox::PerThread<>::PerThread"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 46,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3TLSC2EPFvPvE",
+                            "FuncName": "lunchbox::TLS::TLS"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 369,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEPKci",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 348,
+                            "Tip": "Load value from <b>first</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>first</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEv",
+                            "FuncName": "lunchbox::Log::instance"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 92,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 185,
+                            "Tip": "Enter function <b>runChild</b>",
+                            "RawTip": "Enter function <b>runChild</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread5startEv",
+                            "FuncName": "lunchbox::Thread::start"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 124,
+                            "Tip": "Enter function <b>_runChild</b>",
+                            "RawTip": "Enter function <b>_runChild</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread8runChildEPv",
+                            "FuncName": "lunchbox::Thread::runChild"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 130,
+                            "Tip": "Enter function <b>setName</b>",
+                            "RawTip": "Enter function <b>setName</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread9_runChildEv",
+                            "FuncName": "lunchbox::Thread::_runChild"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 306,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox6Thread7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE",
+                            "FuncName": "lunchbox::Thread::setName"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 350,
+                            "Tip": "Store <b>0</b> to <b>first</b> (Dereference Site)",
+                            "RawTip": "Store <b>0</b> to <b>first</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEv",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 369,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEPKci",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 346,
+                            "Tip": "Enter function <b>globals</b>",
+                            "RawTip": "Enter function <b>globals</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEv",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 94,
+                            "Tip": "Enter function <b>LogGlobals</b>",
+                            "RawTip": "Enter function <b>LogGlobals</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox12_GLOBAL__N_17globalsEv",
+                            "FuncName": "lunchbox::(anonymous namespace)::globals"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 65,
+                            "Tip": "Enter function <b>PerThread</b>",
+                            "RawTip": "Enter function <b>PerThread</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox12_GLOBAL__N_110LogGlobalsC2Ev",
+                            "FuncName": "lunchbox::(anonymous namespace)::LogGlobals::LogGlobals"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 22,
+                            "Tip": "Enter function <b>TLS</b>",
+                            "RawTip": "Enter function <b>TLS</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox9PerThreadINS_3LogEXadL_ZNS_15perThreadDeleteIS1_EEvPT_EEEC2Ev",
+                            "FuncName": "lunchbox::PerThread<>::PerThread"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 46,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3TLSC2EPFvPvE",
+                            "FuncName": "lunchbox::TLS::TLS"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 369,
+                            "Tip": "Enter function <b>instance</b>",
+                            "RawTip": "Enter function <b>instance</b>",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEPKci",
+                            "FuncName": "lunchbox::Log::instance"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 350,
+                            "Tip": "Store <b>0</b> to <b>first</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>0</b> to <b>first</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "_ZN8lunchbox3Log8instanceEv",
+                            "FuncName": "lunchbox::Log::instance"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

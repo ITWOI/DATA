@@ -1,0 +1,27 @@
+Current time:2015-03-14 13:32:21.731709
+2015-03-14 13:32:22.043001:irq_handler2 is added to breakpoint.
+2015-03-14 13:32:22.128758:irq_handler1 is added to breakpoint.
+2015-03-14 13:32:22.131772:SV:bufferRemainCap is added to breakpoint.
+2015-03-14 13:32:22.142917:Successfully install callback function!
+2015-03-14 13:32:22.166038:Interrupt:10 is invoked
+2015-03-14 13:32:23.766318:PuT: $bufferRemainCap$, Read, ffffffffa00ec032
+2015-03-14 13:32:23.767315:irq_handler1,Not encounted
+2015-03-14 13:32:27.788886:Interrupt:10 is invoked
+2015-03-14 13:32:27.789976:begin reverse execution
+2015-03-14 13:32:27.790612:ERROR in MAGIC_CALLBACK, prevMaigc:0,arg:0
+2015-03-14 13:32:27.820261:PuT: $bufferRemainCap$, Read, ffffffffa00ec032
+2015-03-14 13:32:27.822022:irq_handler1,Not encounted
+2015-03-14 13:32:27.876982:back to irq_handler1
+2015-03-14 13:32:28.021223:PuT: $bufferRemainCap$, Read, ffffffffa00ec032
+2015-03-14 13:32:28.022086:irq_handler1,Encounted
+2015-03-14 13:32:28.025086:PuT: $bufferRemainCap$, Write, ffffffffa00ec04e
+2015-03-14 13:32:28.026164:Interrupt:11 is invoked
+2015-03-14 13:32:28.030026:ISR_entry
+2015-03-14 13:32:28.038442:ISR: $bufferRemainCap$, write
+2015-03-14 13:32:28.039764:irq_handler2,Encounted
+2015-03-14 13:32:28.040531:ISR_exit
+2015-03-14 13:32:28.041745:Iretd
+2015-03-14 13:32:28.042315:ffffffffa00ec04e
+2015-03-14 13:32:28.042902:RACE DETECTED
+2015-03-14 13:32:28.043743:prio is:0.5000
+

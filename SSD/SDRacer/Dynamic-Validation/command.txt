@@ -1,0 +1,1 @@
+python autotest.py test.pdr ckp-example exampleSymbol log /home/fff000/simics-workspace

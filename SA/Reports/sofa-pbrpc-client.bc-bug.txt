@@ -1,0 +1,85 @@
+{
+    "Target": ".piggy/top/sofa-pbrpc-client.bc",
+    "TotalBugs": 2,
+    "TotalFunc": 6523,
+    "ExternalFuncRatio": "4.81",
+    "TotalInst": 145608,
+    "AvgInstPerFunc": "23.45",
+    "MaxInstPerFunc": 833,
+    "FuncWithMostInst": "field2json",
+    "AvgCyclomaticComplexity": "2.29",
+    "MaxCyclomaticComplexity": 188,
+    "FuncWithMaxCyclomaticComplexity": "CallMethod",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/sofa-pbrpc/src/sofa/pbrpc/thread_group_impl.h"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 2,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 95,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 113,
+                            "Tip": "<b>&amp;(this-&gt;_thread_params[i])</b> is used as the 1st parameter in function <b>thread_run</b>",
+                            "FuncKey": "_ZN4sofa5pbrpc15ThreadGroupImpl5startEv",
+                            "FuncName": "sofa::pbrpc::ThreadGroupImpl::start"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 257,
+                            "Tip": "Store <b>1</b> to <b>thread_param-&gt;init_done</b> (Dereference Site)",
+                            "FuncKey": "_ZN4sofa5pbrpc15ThreadGroupImpl10thread_runEPv",
+                            "FuncName": "sofa::pbrpc::ThreadGroupImpl::thread_run"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 133,
+                            "Tip": "Load value from <b>this-&gt;_thread_params[i].init_done</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "FuncKey": "_ZN4sofa5pbrpc15ThreadGroupImpl5startEv",
+                            "FuncName": "sofa::pbrpc::ThreadGroupImpl::start"
+                        }
+                    ]
+                },
+                {
+                    "Dominated": false,
+                    "Score": 80,
+                    "Valid": true,
+                    "ReportChecker": "PSA Data Race Checker",
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 113,
+                            "Tip": "<b>&amp;(this-&gt;_thread_params[i])</b> is used as the 1st parameter in function <b>thread_run</b>",
+                            "FuncKey": "_ZN4sofa5pbrpc15ThreadGroupImpl5startEv",
+                            "FuncName": "sofa::pbrpc::ThreadGroupImpl::start"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 255,
+                            "Tip": "Store <b>1</b> to <b>thread_param-&gt;init_fail</b> (Dereference Site)",
+                            "FuncKey": "_ZN4sofa5pbrpc15ThreadGroupImpl10thread_runEPv",
+                            "FuncName": "sofa::pbrpc::ThreadGroupImpl::thread_run"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 135,
+                            "Tip": "Load value from <b>this-&gt;_thread_params[i].init_fail</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "FuncKey": "_ZN4sofa5pbrpc15ThreadGroupImpl5startEv",
+                            "FuncName": "sofa::pbrpc::ThreadGroupImpl::start"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

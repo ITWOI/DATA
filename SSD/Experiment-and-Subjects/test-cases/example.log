@@ -1,0 +1,14 @@
+Current time:2016-07-06 21:02:07.859915
+2016-07-06 21:02:07.994274:irq_handler1 is added to breakpoint.
+2016-07-06 21:02:08.020860:task2 is added to breakpoint.
+2016-07-06 21:02:08.046500:SV:packetsNumber is added to breakpoint.
+2016-07-06 21:02:08.047897:Successfully install callback function!
+2016-07-06 21:02:09.447637:PuT: $packetsNumber$, Read, ffffffffa00ec097
+2016-07-06 21:02:09.448090:Interrupt:10 is invoked
+2016-07-06 21:02:09.448224:PuT: $packetsNumber$, Write, ffffffffa00ec097
+2016-07-06 21:02:09.448699:ISR_entry
+2016-07-06 21:02:09.449043:ISR_exit
+2016-07-06 21:02:09.449553:Iretd
+2016-07-06 21:02:09.449771:ffffffffa00ec097
+2016-07-06 21:02:09.450177:RACE DETECTED
+2016-07-06 21:02:09.450305:prio is:1.0000

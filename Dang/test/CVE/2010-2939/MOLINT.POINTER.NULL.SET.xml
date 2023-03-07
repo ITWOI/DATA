@@ -1,0 +1,32 @@
+<error>
+<checker>MOLINT.POINTER.NULL.SET</checker>
+<domain>STATIC_C</domain>
+<file>/home/fff000/Documents/test/UAF/openssl/openssl-1.0.0a/ssl/s3_clnt.c</file>
+<function>ssl3_send_client_key_exchange</function>
+<score>100</score>
+<ordered>false</ordered>
+<event>
+<main>true</main>
+<tag>Error</tag>
+<description>Variable:bn_ctx is a dangling pointer.</description>
+<line>2654</line>
+</event>
+<extra>none</extra>
+<subcategory>none</subcategory>
+</error>
+<error>
+<checker>MOLINT.POINTER.NULL.SET</checker>
+<domain>STATIC_C</domain>
+<file>/home/fff000/Documents/test/UAF/openssl/openssl-1.0.0a/ssl/s3_clnt.c</file>
+<function>ssl3_get_key_exchange</function>
+<score>100</score>
+<ordered>false</ordered>
+<event>
+<main>true</main>
+<tag>Error</tag>
+<description>Variable:bn_ctx is a dangling pointer.</description>
+<line>1649</line>
+</event>
+<extra>none</extra>
+<subcategory>none</subcategory>
+</error>

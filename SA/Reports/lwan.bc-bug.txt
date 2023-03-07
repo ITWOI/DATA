@@ -1,0 +1,425 @@
+{
+    "Info": [
+        "[enable-heap-alloc-failure] Detect a manual check at Line 75 @ /home/fff000/Documents/test/lwan/src/lib/lwan-trie.c",
+        "[enable-fd-alloc-failure] Detect a manual check at Line 48 @ /home/fff000/Documents/test/lwan/src/lib/lwan-socket.c"
+    ],
+    "Target": "./.piggy/top/lwan.bc",
+    "TotalBugs": 5,
+    "TotalFunc": 634,
+    "ExternalFuncRatio": "26.81",
+    "TotalInst": 28329,
+    "AvgInstPerFunc": "61.05",
+    "MaxInstPerFunc": 702,
+    "FuncWithMostInst": "lwan_prepare_response_header_full",
+    "AvgCyclomaticComplexity": "4.08",
+    "MaxCyclomaticComplexity": 47,
+    "FuncWithMaxCyclomaticComplexity": "parse_headers",
+    "SrcFiles": [
+        "/home/fff000/Documents/test/lwan/src/bin/lwan/main.c",
+        "/home/fff000/Documents/test/lwan/src/lib/lwan.c",
+        "/home/fff000/Documents/test/lwan/src/lib/lwan-job.c",
+        "/home/fff000/Documents/test/lwan/src/lib/lwan-status.c"
+    ],
+    "BugTypes": [
+        {
+            "Name": "Data Race",
+            "Description": "CWE-362",
+            "Importance": "high",
+            "Classification": "error",
+            "TotalReports": 5,
+            "Reports": [
+                {
+                    "Dominated": false,
+                    "Score": 88,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 0,
+                            "Line": 162,
+                            "Tip": "Enter function <b>lwan_shutdown</b>",
+                            "RawTip": "Enter function <b>lwan_shutdown</b>",
+                            "Importance": 100,
+                            "FuncKey": "main",
+                            "FuncName": "main"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 609,
+                            "Tip": "Enter function <b>lwan_job_thread_shutdown</b>",
+                            "RawTip": "Enter function <b>lwan_job_thread_shutdown</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_shutdown",
+                            "FuncName": "lwan_shutdown"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 125,
+                            "Tip": "Store <b>0</b> to <b>running</b> (Dereference Site)",
+                            "RawTip": "Store <b>0</b> to <b>running</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "lwan_job_thread_shutdown",
+                            "FuncName": "lwan_job_thread_shutdown"
+                        },
+                        {
+                            "File": 0,
+                            "Line": 141,
+                            "Tip": "Enter function <b>lwan_init_with_config</b>",
+                            "RawTip": "Enter function <b>lwan_init_with_config</b>",
+                            "Importance": 100,
+                            "FuncKey": "main",
+                            "FuncName": "main"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 552,
+                            "Tip": "Enter function <b>lwan_job_thread_init</b>",
+                            "RawTip": "Enter function <b>lwan_job_thread_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 101,
+                            "Tip": "Enter function <b>job_thread</b>",
+                            "RawTip": "Enter function <b>job_thread</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_job_thread_init",
+                            "FuncName": "lwan_job_thread_init"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 71,
+                            "Tip": "Load value from <b>running</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>running</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "job_thread",
+                            "FuncName": "job_thread"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 82,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 1,
+                            "Line": 564,
+                            "Tip": "Enter function <b>lwan_status_init</b>",
+                            "RawTip": "Enter function <b>lwan_status_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 57,
+                            "Tip": "Store the return value of function <b>can_use_colors</b> to <b>use_colors</b> (Dereference Site)",
+                            "RawTip": "Store the return value of function <b>can_use_colors</b> to <b>use_colors</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_init",
+                            "FuncName": "lwan_status_init"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 552,
+                            "Tip": "Enter function <b>lwan_job_thread_init</b>",
+                            "RawTip": "Enter function <b>lwan_job_thread_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 101,
+                            "Tip": "Enter function <b>job_thread</b>",
+                            "RawTip": "Enter function <b>job_thread</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_job_thread_init",
+                            "FuncName": "lwan_job_thread_init"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 69,
+                            "Tip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "RawTip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "Importance": 100,
+                            "FuncKey": "job_thread",
+                            "FuncName": "job_thread"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 237,
+                            "Tip": "Enter function <b>status_out</b>",
+                            "RawTip": "Enter function <b>status_out</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_critical_debug",
+                            "FuncName": "lwan_status_critical_debug"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 194,
+                            "Tip": "Enter function <b>status_out_msg</b>",
+                            "RawTip": "Enter function <b>status_out_msg</b>",
+                            "Importance": 100,
+                            "FuncKey": "status_out",
+                            "FuncName": "status_out"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 149,
+                            "Tip": "Load value from <b>use_colors</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>use_colors</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "status_out_msg",
+                            "FuncName": "status_out_msg"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 82,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 1,
+                            "Line": 564,
+                            "Tip": "Enter function <b>lwan_status_init</b>",
+                            "RawTip": "Enter function <b>lwan_status_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 57,
+                            "Tip": "Store the return value of function <b>can_use_colors</b> to <b>use_colors</b> (Dereference Site)",
+                            "RawTip": "Store the return value of function <b>can_use_colors</b> to <b>use_colors</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_init",
+                            "FuncName": "lwan_status_init"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 552,
+                            "Tip": "Enter function <b>lwan_job_thread_init</b>",
+                            "RawTip": "Enter function <b>lwan_job_thread_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 101,
+                            "Tip": "Enter function <b>job_thread</b>",
+                            "RawTip": "Enter function <b>job_thread</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_job_thread_init",
+                            "FuncName": "lwan_job_thread_init"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 69,
+                            "Tip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "RawTip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "Importance": 100,
+                            "FuncKey": "job_thread",
+                            "FuncName": "job_thread"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 237,
+                            "Tip": "Enter function <b>status_out</b>",
+                            "RawTip": "Enter function <b>status_out</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_critical_debug",
+                            "FuncName": "lwan_status_critical_debug"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 194,
+                            "Tip": "Enter function <b>status_out_msg</b>",
+                            "RawTip": "Enter function <b>status_out_msg</b>",
+                            "Importance": 100,
+                            "FuncKey": "status_out",
+                            "FuncName": "status_out"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 142,
+                            "Tip": "Enter function <b>get_color_start_for_type</b>",
+                            "RawTip": "Enter function <b>get_color_start_for_type</b>",
+                            "Importance": 100,
+                            "FuncKey": "status_out_msg",
+                            "FuncName": "status_out_msg"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 85,
+                            "Tip": "Load value from <b>use_colors</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>use_colors</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "get_color_start_for_type",
+                            "FuncName": "get_color_start_for_type"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 82,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 1,
+                            "Line": 564,
+                            "Tip": "Enter function <b>lwan_status_init</b>",
+                            "RawTip": "Enter function <b>lwan_status_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 57,
+                            "Tip": "Store the return value of function <b>can_use_colors</b> to <b>use_colors</b> (Dereference Site)",
+                            "RawTip": "Store the return value of function <b>can_use_colors</b> to <b>use_colors</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_init",
+                            "FuncName": "lwan_status_init"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 552,
+                            "Tip": "Enter function <b>lwan_job_thread_init</b>",
+                            "RawTip": "Enter function <b>lwan_job_thread_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 101,
+                            "Tip": "Enter function <b>job_thread</b>",
+                            "RawTip": "Enter function <b>job_thread</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_job_thread_init",
+                            "FuncName": "lwan_job_thread_init"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 69,
+                            "Tip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "RawTip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "Importance": 100,
+                            "FuncKey": "job_thread",
+                            "FuncName": "job_thread"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 237,
+                            "Tip": "Enter function <b>status_out</b>",
+                            "RawTip": "Enter function <b>status_out</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_critical_debug",
+                            "FuncName": "lwan_status_critical_debug"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 194,
+                            "Tip": "Enter function <b>status_out_msg</b>",
+                            "RawTip": "Enter function <b>status_out_msg</b>",
+                            "Importance": 100,
+                            "FuncKey": "status_out",
+                            "FuncName": "status_out"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 143,
+                            "Tip": "Enter function <b>get_color_end_for_type</b>",
+                            "RawTip": "Enter function <b>get_color_end_for_type</b>",
+                            "Importance": 100,
+                            "FuncKey": "status_out_msg",
+                            "FuncName": "status_out_msg"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 111,
+                            "Tip": "Load value from <b>use_colors</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Load value from <b>use_colors</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "get_color_end_for_type",
+                            "FuncName": "get_color_end_for_type"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                },
+                {
+                    "Dominated": false,
+                    "Score": 85,
+                    "Valid": true,
+                    "DiagSteps": [
+                        {
+                            "File": 1,
+                            "Line": 552,
+                            "Tip": "Enter function <b>lwan_job_thread_init</b>",
+                            "RawTip": "Enter function <b>lwan_job_thread_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 101,
+                            "Tip": "Enter function <b>job_thread</b>",
+                            "RawTip": "Enter function <b>job_thread</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_job_thread_init",
+                            "FuncName": "lwan_job_thread_init"
+                        },
+                        {
+                            "File": 2,
+                            "Line": 69,
+                            "Tip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "RawTip": "Enter function <b>lwan_status_critical_debug</b>",
+                            "Importance": 100,
+                            "FuncKey": "job_thread",
+                            "FuncName": "job_thread"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 237,
+                            "Tip": "Load value from <b>quiet</b> (Dereference Site)",
+                            "RawTip": "Load value from <b>quiet</b> (Dereference Site)",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_critical_debug",
+                            "FuncName": "lwan_status_critical_debug"
+                        },
+                        {
+                            "File": 1,
+                            "Line": 564,
+                            "Tip": "Enter function <b>lwan_status_init</b>",
+                            "RawTip": "Enter function <b>lwan_status_init</b>",
+                            "Importance": 100,
+                            "FuncKey": "lwan_init_with_config",
+                            "FuncName": "lwan_init_with_config"
+                        },
+                        {
+                            "File": 3,
+                            "Line": 54,
+                            "Tip": "Store <b>0</b> to <b>quiet</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "RawTip": "Store <b>0</b> to <b>quiet</b> (Dereference Site) (<font color=red>Data Race, CWE-362</font>)",
+                            "Importance": 100,
+                            "FuncKey": "lwan_status_init",
+                            "FuncName": "lwan_status_init"
+                        }
+                    ],
+                    "ReportChecker": "PSA Data Race Checker"
+                }
+            ]
+        }
+    ]
+}

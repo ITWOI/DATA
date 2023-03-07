@@ -1,0 +1,25 @@
+# Makefile for uClibc
+#
+# Copyright (C) 2000-2006 Erik Andersen <andersen@uclibc.org>
+#
+# Licensed under the LGPL v2.1, see the file COPYING.LIB in this tarball.
+#
+
+CSRC :=	interrupt.c
+
+ifneq ($(strip $(ARCH_OBJS)),)
+CSRC := $(filter-out $(notdir $(ARCH_OBJS:.o=.c)),$(CSRC))
+endif
+
+LINUX_DIR := $(top_srcdir)libc/linux
+LINUX_OUT := $(top_builddir)libc/linux
+
+LINUX_SRC := $(patsubst %.c,$(LINUX_DIR)/%.c,$(CSRC))
+LINUX_OBJ := $(patsubst %.c,$(LINUX_OUT)/%.o,$(CSRC))
+
+libc-y += $(LINUX_OBJ)
+
+objclean-y += linux_objclean
+
+linux_objclean:
+	$(RM) $(LINUX_OUT)/*.{o,os}

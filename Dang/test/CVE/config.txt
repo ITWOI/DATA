@@ -1,0 +1,100 @@
+CheckerEnable
+{
+	taintChecker = false
+	danglingPointer = true
+	arrayBound = false
+	recursiveCall = false
+	divideChecker = false
+	memoryOPChecker = false
+}
+
+DivChecker
+{
+	level = 1
+	ConditionalCheckEnable = true
+}
+
+PrintLog
+{
+	level = 0
+	taintChecker = false
+	danglingPointer = true
+	arrayBound = false
+	recursiveCall = false
+	divideChecker = false
+	memoryOPChecker = false
+}
+
+Framework
+{
+    queue_size = 1000
+}
+
+DanglingPointer
+{
+	levelOfDete = 2
+	ifRegardParAsFreelike = true
+}
+
+MemoryReleaseFunction
+{
+	free = 0
+	F0 = 0
+    _efree = 0
+    gnutls_free = 0
+    gnutls_pubkey_deinit = 0
+    BN_CTX_free = 0
+    gcry_sexp_release = 0
+}
+
+ArrayBound
+{
+	SimpleCheckEnable = false
+	checkdepth=1
+	IndexIgnoreConditionalOperator = false
+}
+
+MemoryOPFunction
+{
+	VOS_MemAlloc = 2 
+	VOS_MemSet = 2
+	VOS_MemCpy = 2
+	VOS_MemMove = 2
+	memset = 2
+	memmove = 2
+	memcpy = 2
+	malloc = 0
+	calloc = 0
+}
+
+MemoryOPCheckStyle
+{
+	VOS_MemAlloc= b > 50
+	VOS_MemSet= b > 50
+	VOS_MemCpy= b > 50
+	VOS_MemMove= b > 50
+	memmove= b > 50
+	memset= b > 50
+	memcpy= b > 50
+	malloc= b > 50
+	calloc= b > 50
+	MemOP= b > 50
+}
+
+MemOPCheckLevel
+{
+	N = 1
+}
+
+
+RightIfCheckMode
+{
+	StringMode= true
+	ASTMode= false
+	Z3Mode= false
+}
+
+RecursiveCall
+{
+    max_scc_size = 5
+}
